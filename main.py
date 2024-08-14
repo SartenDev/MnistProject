@@ -106,8 +106,7 @@ def run(X_full, y_full, dense1, dense2, learning_rate, epsilon, epochs):
             TempLayer = relu(forward_pass(input=len(X_full[0]), output=dense1, Layer=X_full[i],Wages=Wages1))
             Wages2 = set_new_wages_softmax(Layer=TempLayer, X=X_full[i], Wages=Wages2, dense2=dense2, dense1=dense1, learning_rate=learning_rate, epsilon=epsilon)
 
-            accuracy = correct_predictions / len(X_full)
-            print(f"Epoch: {epoch+1}/{epochs}, Obrazek: {i}, Dokładność: {accuracy:.4f}, Dokładność2: {(correct_predictions/(i+1)):.4f}")
+            print(f"Epoch: {epoch+1}/{epochs}, Obrazek: {i}, Dokładność: {(correct_predictions/(i+1)):.4f}")
 
 
     print("Predicted label:", predict(X=X_full[-2], Wages1=Wages1, Wages2=Wages2))
@@ -129,7 +128,7 @@ Wages2 = []
 dense1 = 100
 dense2 = 10
 learning_rate = 0.01
-epsilon = 1e-10
+epsilon = 1e-10 #dodaje do wartości warstwy, żeby uniknąć obliczania ln(0)
 epoch = 8
 
 run(X_full, y_full, dense1, dense2, learning_rate, epsilon, epoch)
