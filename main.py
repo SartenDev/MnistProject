@@ -123,8 +123,6 @@ mnist = fetch_openml('mnist_784', as_frame=False)
 
 X_full, y_full = mnist.data / 255.0, mnist.target.astype(int)
 
-Wages = []
-Wages2 = []
 dense1 = 100
 dense2 = 10
 learning_rate = 0.01
